@@ -7,7 +7,7 @@ public class PlayerControls : MonoBehaviour
     private float horizontaLInput;
     private float verticalInput;
     public float speed = 7f;
-    GameObject circleProjectile;
+    public GameObject projectile;
 
     // Start is called before the first frame update
     void Start()
@@ -23,12 +23,12 @@ public class PlayerControls : MonoBehaviour
 
         if (Input.GetKeyDown("space"))
         {
-            
+          transform.Translate(Vector3.up * 200 * Time.deltaTime, Space.World);
         }
         
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            //Instantiate(circleProjectile, transform.position, + new Vector3., circleProjectile.transform.rotation);
+          Instantiate(projectile, transform.position, projectile.transform.rotation);
         }
 
     }
