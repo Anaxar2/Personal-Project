@@ -720,6 +720,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 7
+  jumpForce: 10
+  gravity: 2
+  jump: 0
   projectile: {fileID: 5587286201118729379, guid: ad91e9d0ac342944da3f0e8dcfa0c2b9, type: 3}
 --- !u!1 &1284068734
 GameObject:
@@ -734,7 +737,7 @@ GameObject:
   - component: {fileID: 1284068738}
   m_Layer: 0
   m_Name: Ground
-  m_TagString: Untagged
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
