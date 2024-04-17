@@ -13,6 +13,7 @@ public class PlayerControls : MonoBehaviour
     public float gravity;
     bool grounded = true;
     public int jump = 2;
+    public bool isFacingRight;
 
     public GameObject projectile;
 
@@ -32,22 +33,37 @@ public class PlayerControls : MonoBehaviour
 
         //flips character left and right when moving.
         if (horizontaLInput > 0.01f)
-            transform.localScale = Vector3.one;
-        else if (horizontaLInput < -0.01f)
-            transform.localScale = new Vector3(-1, 1, 1);
+        { transform.localScale = Vector3.one;
+            isFacingRight = true;
+        }
 
-        if (Input.GetKeyDown(KeyCode.Space) && jump > 0 == false)
+        else if (horizontaLInput < -0.01f)
+        { transform.localScale = new Vector3(-1, 1, 1);
+            isFacingRight = false;
+        }
+
+        //Jump Mechanic.
+        if (Input.GetKeyDown(KeyCode.Space) && jump > 0)
         {
-            rb.AddForce(Vector3.up * jumpForce, ForceMode2D.Impulse); //Jump Mechanic.
+            rb.AddForce(Vector3.up * jumpForce, ForceMode2D.Impulse); 
             grounded = false;
             jump--;
 
-            // Projectiles
-            if (Input.GetKeyDown(KeyCode.Mouse0))
-            {
-                Instantiate(projectile, transform.position, projectile.transform.rotation);
-            }
+           
+        }
+        // Projectiles
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            Instantiate(projectile, transform.position, projectile.transform.rotation);
+        }
 
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.transform.tag == "ground")
+        {
+            grounded = true;
+            jump = 2;
         }
     }
 }
