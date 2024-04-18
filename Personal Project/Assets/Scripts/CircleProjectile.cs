@@ -5,8 +5,8 @@ using UnityEngine;
 public class CircleProjectile : MonoBehaviour
 {
     public float speed = 10f;
-    private float rightBound = 10;
-    private float leftBound = -10;
+    private float rightBound = 20;
+    private float leftBound = -20;
     private PlayerControls pc;
 
 
@@ -36,8 +36,6 @@ public class CircleProjectile : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
-
     }
 }
  

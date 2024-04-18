@@ -31,12 +31,12 @@ public class PlayerControls : MonoBehaviour
         float horizontaLInput = Input.GetAxis("Horizontal"); //left and right movement
         rb.velocity = new Vector2(horizontaLInput * speed, rb.velocity.y);
 
-        //flips character left and right when moving.
+        //flips character right when moving.
         if (horizontaLInput > 0.01f)
         { transform.localScale = Vector3.one;
             isFacingRight = true;
         }
-
+        //flips character left when moving.
         else if (horizontaLInput < -0.01f)
         { transform.localScale = new Vector3(-1, 1, 1);
             isFacingRight = false;
