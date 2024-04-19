@@ -21,7 +21,7 @@ public class TurnEnemy : MonoBehaviour
     {
         if (enemy.transform.tag == "Enemy")
         {
-        enemy.transform.Rotate (180, 0, 0);
+        enemy.GetComponent<EnemyController>().EnemySpeed = - enemy.GetComponent<EnemyController>().EnemySpeed;
         }
       
     }
