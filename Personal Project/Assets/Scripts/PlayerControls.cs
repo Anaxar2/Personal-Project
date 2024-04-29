@@ -38,12 +38,12 @@ public class PlayerControls : MonoBehaviour
 
         //flips character right when moving.
         if (horizontaLInput > 0.01f)
-        { transform.localScale = Vector3.one;
+        { transform.localScale = new Vector3(10, 8, 10);
             isFacingRight = true;
         }
         //flips character left when moving.
         else if (horizontaLInput < -0.01f)
-        { transform.localScale = new Vector3(-1, 1, 1);
+        { transform.localScale = new Vector3(-10, 8, 10);
             isFacingRight = false;
         }
         //Jump Mechanic.
